@@ -41,4 +41,7 @@ async def extraction_agent(state: State):
     print("\nAgent Run Messages:")
     for message in result["messages"]:
         pprint.pprint(message)
-    return {"extracted_info": result["messages"][-1]}
+    return {
+        "extracted_info": result["messages"][-1],
+        "messages": result["messages"],
+    }

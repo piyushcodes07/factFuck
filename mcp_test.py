@@ -1,8 +1,8 @@
-from mcp import ClientSession
-from mcp.client.streamable_http import streamablehttp_client
-
 # Construct server URL with authentication
 from urllib.parse import urlencode
+
+from mcp import ClientSession
+from mcp.client.streamable_http import streamablehttp_client
 
 base_url = "https://server.smithery.ai/@luminati-io/brightdata-mcp/mcp"
 params = {
@@ -13,7 +13,6 @@ url = f"{base_url}?{urlencode(params)}"
 
 
 async def main():
-    # Connect to the server using HTTP client
     async with streamablehttp_client(url) as (read, write, _):
         async with ClientSession(read, write) as session:
             # Initialize the connection
